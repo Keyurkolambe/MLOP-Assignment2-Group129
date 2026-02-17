@@ -2,9 +2,8 @@ import os
 import random
 import requests
 
-BASE_URL = "http://127.0.0.1:8000"
-TEST_DIR = "data/processed/test"
-SAMPLES_PER_CLASS = 20
+TEST_DIR = "eval_samples"
+SAMPLES_PER_CLASS = 8
 
 def list_images(folder):
     return [
