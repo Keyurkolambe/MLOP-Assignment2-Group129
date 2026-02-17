@@ -16,10 +16,11 @@ jobs:
 
       - name: Pull latest image and deploy
         run: |
+          docker compose down
           docker compose pull
           docker compose up -d
 
       - name: Smoke test
         run: |
           pip install requests
-          python scripts/smoke_test.py
+          python scripts/run_smoke_test.py
