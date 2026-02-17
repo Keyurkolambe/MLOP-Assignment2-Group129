@@ -19,7 +19,7 @@ def wait_for_api(timeout_sec=90):
 def main():
     ok = wait_for_api(90)
     if not ok:
-        raise RuntimeError("API did not become ready")
+        raise RuntimeError("API did not become readyy")
 
     r = requests.get(f"{BASE_URL}/health", timeout=10)
     r.raise_for_status()
