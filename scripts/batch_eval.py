@@ -2,6 +2,7 @@ import os
 import random
 import requests
 
+BASE_URL = "http://127.0.0.1:8000"
 TEST_DIR = "eval_samples"
 SAMPLES_PER_CLASS = 8
 
