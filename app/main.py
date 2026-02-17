@@ -14,7 +14,7 @@ REQUEST_COUNT = 0
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
+    return {"status": "ok", "version" : "v2"}
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
