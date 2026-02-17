@@ -1,7 +1,21 @@
+import time
 import requests
 
 BASE_URL = "http://127.0.0.1:8000"
 IMAGE_PATH = "assets/38.jpg"
+
+def wait_for_api(timeout_sec=60):
+    start = time.time()
+    while time.time() - start < timeout_sec:
+        try:
+            r = requests.get(f"{BASE_URL}/health", timeout=5)
+            if r.status_code == 200:
+                return
+        except Exception:
+            pass
+        time.sleep(2)
+
+    raise RuntimeError("API did not become ready in time")
 
 def test_health():
     r = requests.get(f"{BASE_URL}/health", timeout=10)
@@ -28,6 +42,7 @@ def test_predict():
     print("Predict OK:", data["label"], data["probabilities"])
 
 def main():
+    wait_for_api(timeout_sec=60)
     test_health()
     test_predict()
     print("Smoke test passed")
