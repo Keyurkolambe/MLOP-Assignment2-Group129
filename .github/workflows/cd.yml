@@ -24,3 +24,8 @@ jobs:
         run: |
           pip install requests
           python scripts/run_smoke_test.py
+      - name: Batch evaluation (post-deploy)
+        run: |
+          pip install requests
+          python scripts/batch_eval.py
+
